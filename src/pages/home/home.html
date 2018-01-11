@@ -1,0 +1,42 @@
+<ion-header>
+  <ion-navbar style="opacity: 0.8" no-border-bottom color="primary">
+    <ion-title>首页</ion-title>
+    <!--<ion-buttons end>-->
+    <!--<button ion-button (click)="share($event)">-->
+    <!--<ion-icon name="share"></ion-icon>-->
+    <!--</button>-->
+    <!--</ion-buttons>-->
+  </ion-navbar>
+</ion-header>
+
+<ion-content fullscreen>
+
+  <!-- 轮播:
+  autoplay:2s之后开始轮播
+  loop:循环播放
+  pager:分页器（小圆点） pager=true
+-->
+  <ion-slides [pager]="true" [loop]="true" autoplay="3000" [initialSlide]=0 *ngIf="slides.length > 1">
+    <ion-slide *ngFor="let item of slides" (click)="goDetails(item)">
+      <img src="{{item.PictUrl}}" alt="">
+      <div class="cover"></div>
+      <span class="title">{{item.Title}}</span>
+    </ion-slide>
+  </ion-slides>
+
+
+  <div class="categories">
+    <ion-grid>
+      <ion-row wrap>
+        <ion-col text-center tappable col-3 *ngFor="let c of categories" (click)="goProductList(c)">
+          <i class="iconfont {{c.Icon}} icon"></i>
+          <span class="title">{{c.FavoritesTitle}}</span>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
+
+  <ion-item-divider class="t-header" color="light">最新新闻</ion-item-divider>
+  <ion-products [news]="news"></ion-products>
+
+</ion-content>

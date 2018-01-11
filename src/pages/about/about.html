@@ -1,0 +1,38 @@
+<ion-header>
+  <ion-navbar class="header">
+    <ion-title>
+      个人中心
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content has-bouncing="false" scrollbar-y="false">
+  <a class="userInfo" href="#">
+    <img ng-src="">
+    <h2 class="name">姓名</h2>
+    <p class="tel">联系电话：12352353210</p>
+  </a>
+  <ion-list>
+    <ion-item>
+      <a  nav-direction="forward">
+        <ion-icon ios="ios-lock-outline" md="md-lock"></ion-icon>修改密码
+      </a>
+    </ion-item>
+    <ion-item>
+      <a nav-direction="forward">
+        <ion-icon ios="ios-settings-outline" md="md-settings"></ion-icon>设置
+      </a>
+    </ion-item>
+    <ion-item>
+      <a  nav-direction="forward">
+        <ion-icon name="clearcache"></ion-icon>清除缓存
+      </a>
+    </ion-item>
+    <ion-item>
+      <a  nav-direction="forward">
+        <ion-icon name="app-about"></ion-icon>关于app
+      </a>
+    </ion-item>
+  </ion-list>
+  <button type="button" class="button exitBtn" (click)="loginOut()">退出登录</button>
+</ion-content>

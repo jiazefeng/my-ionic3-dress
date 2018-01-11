@@ -1,0 +1,63 @@
+page-about {
+  .toolbar-background-ios {
+    background: -webkit-linear-gradient(left, #0099cc, #00cccc) !important;
+    //background-color: #00cccc !important;
+    border-style: none !important;
+  }
+  .toolbar-title-ios{
+  color: white;
+  }
+  a{
+    text-decoration:none;
+    color: #222222;
+  }
+  .userInfo {
+    height: 8.88rem;
+    background: -webkit-linear-gradient(left, #0099cc, #00cccc) !important;
+    background: -moz-linear-gradient(left, #0099cc, #00cccc) !important;
+    background: linear-gradient(left, #0099cc, #00cccc) !important;
+    background: -o-linear-gradient(left, #0099cc, #00cccc) !important;
+    display: block;
+    h2 {
+      font-size: .3rem;
+      color: #fff;
+      line-height: .65rem;
+      margin: 1rem auto;
+      text-align: center;
+    }
+    p {
+      font-size: .28rem;
+      color: #fff;
+      text-align: center;
+    }
+    .name {
+
+    }
+    .tel {
+
+    }
+    img:first-child {
+      border: 5px solid #008899;
+      border-radius: 2.35rem;
+      background: url('../../assets/imgs/mine/img1.png') no-repeat center bottom;
+      background-size: 100% 100%;
+      margin: 0 auto;
+      display: block;
+      width: 4.6rem;
+      height: 4.6rem;
+    }
+  }
+
+  .exitBtn {
+    width: 70%;
+    height: 2.8rem;
+    min-height: .8rem;
+    line-height: .8rem;
+    border-radius: 5px;
+    background: #00cccc;
+    margin: .3rem auto;
+    color: #fff;
+    font-size: .3rem;
+    display: block;
+  }
+}
