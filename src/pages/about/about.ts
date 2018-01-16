@@ -1,6 +1,8 @@
 import {Component} from '@angular/core';
-import {NavController, IonicPage,ModalController} from 'ionic-angular';
+import {NavController, IonicPage, ModalController} from 'ionic-angular';
 import {AlertController} from 'ionic-angular';
+import {LoginPage} from "../login/login";
+
 // import {LoginPage} from '../login/login';
 
 @IonicPage()
@@ -10,7 +12,7 @@ import {AlertController} from 'ionic-angular';
 })
 export class AboutPage {
 
-  constructor(public navCtrl: NavController, public  alertCtrl: AlertController,public modalCtrl:ModalController) {
+  constructor(public navCtrl: NavController, public  alertCtrl: AlertController, public modalCtrl: ModalController) {
 
   }
 
@@ -28,7 +30,7 @@ export class AboutPage {
         {
           text: '同意',
           handler: () => {
-            let modal =this.modalCtrl.create('LoginPage' ,
+            let modal = this.modalCtrl.create('LoginPage',
               // { id:123,name: "Carl"}
             );
             modal.present();
@@ -38,5 +40,55 @@ export class AboutPage {
       ]
     });
     confirm.present();
+  }
+
+  resetPassword() {
+    let resetPass = this.alertCtrl.create({
+      title: '重置密码',
+      // message: "Enter a name for this new album you're so keen on adding",
+      inputs: [
+        {
+          name: 'minTemp',
+          placeholder: '新密码',
+          type:'number'
+        },{
+          name: 'maxTemp',
+          placeholder: '确认密码',
+          type:'number'
+        }
+      ],
+      buttons: [
+        {
+          text: '取消',
+          handler: data => {
+            console.log('Cancel clicked');
+          }
+        },
+        {
+          text: '确定',
+          handler: data => {
+           this.navCtrl.push("LoginPage");
+          }
+        }
+      ]
+    });
+  }
+  clearCache(){
+    let clearCache = this.alertCtrl.create({
+      title:'清除缓存',
+      message: "确定要清除所有缓存！",
+      buttons:[  {
+        text: '取消',
+        handler: data => {
+          console.log('Cancel clicked');
+        }
+      },
+        {
+          text: '确定',
+          handler: data => {
+            // this.navCtrl.push("LoginPage");
+          }
+        }]
+    });
   }
 }

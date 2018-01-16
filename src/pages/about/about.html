@@ -15,7 +15,7 @@
   <ion-list>
     <ion-item>
       <a  nav-direction="forward">
-        <ion-icon ios="ios-lock-outline" md="md-lock"></ion-icon>修改密码
+        <ion-icon ios="ios-lock-outline" md="md-lock" (click)="resetPassword()"></ion-icon>修改密码
       </a>
     </ion-item>
     <ion-item>
@@ -25,7 +25,7 @@
     </ion-item>
     <ion-item>
       <a  nav-direction="forward">
-        <ion-icon name="clearcache"></ion-icon>清除缓存
+        <ion-icon name="clearcache" (click)="clearCache()"></ion-icon>清除缓存
       </a>
     </ion-item>
     <ion-item>
