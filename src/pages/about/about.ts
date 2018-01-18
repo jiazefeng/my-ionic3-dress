@@ -72,6 +72,7 @@ export class AboutPage {
         }
       ]
     });
+    resetPass.present();
   }
   clearCache(){
     let clearCache = this.alertCtrl.create({
@@ -90,5 +91,6 @@ export class AboutPage {
           }
         }]
     });
+    clearCache.present();
   }
 }
