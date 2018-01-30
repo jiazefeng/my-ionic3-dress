@@ -10,7 +10,7 @@ export class IonPlantsComponent {
   @Input() plants: Array<any> = [];
 
   constructor(public navCtrl: NavController) {
-    console.log('Hello IonPlantsComponent Component');
+    // console.log('Hello IonPlantsComponent Component');
   }
 
 }

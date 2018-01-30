@@ -1,22 +1,18 @@
 import {Component} from '@angular/core';
 import {IonicPage, NavController, NavParams} from 'ionic-angular';
-import {TabsPage} from "../tabs/tabs";
-
 @IonicPage()
 @Component({
-  selector: 'page-login',
-  templateUrl: 'login.html',
+  selector: 'page-set-up',
+  templateUrl: 'set-up.html',
 })
-export class LoginPage {
+export class SetUpPage {
+  switch: any;
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
 
   ionViewDidLoad() {
-    // console.log('ionViewDidLoad LoginPage');
+    // console.log('ionViewDidLoad SetUpPage');
   }
 
-  login() {
-    this.navCtrl.push('TabsPage');
-  }
 }

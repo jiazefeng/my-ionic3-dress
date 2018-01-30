@@ -1,0 +1,26 @@
+<ion-header>
+  <ion-navbar style="opacity: 0.8"  color="primary">
+    <ion-title>产量列表</ion-title>
+    <ion-buttons end>
+      <button ion-button (click)="toAdd()">
+        <ion-icon name="add-circle"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+<ion-content>
+  <!--<ion-list>-->
+    <!--<ng-container *ngFor="let item of productiones">-->
+      <!--<ion-item>-->
+        <!--<h2>{{item.greenhouseName}}</h2>-->
+        <!--<p>{{item.createDate}}</p>-->
+        <!--<p item-end>{{item.yield}}kg</p>-->
+      <!--</ion-item>-->
+    <!--</ng-container>-->
+  <!--</ion-list>-->
+  <ion-item *ngFor="let item of productiones">
+    <h2>{{item.greenhouseName}}</h2>
+    <p>{{item.createDate}}</p>
+    <p item-end>{{item.yield}} kg</p>
+  </ion-item>
+</ion-content>

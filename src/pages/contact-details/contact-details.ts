@@ -13,15 +13,33 @@ export class ContactDetailsPage {
   @ViewChild('container') container: ElementRef;
   chart: any;
   plants: Array<any> = [];
+  green: any;
+  params = {
+    gId: '',
+    // pageIndex: 1,
+    // pageSize: 20
+  }
 
   constructor(public appService: AppService, public navCtrl: NavController, public navParams: NavParams, public alertCtrl: AlertController) {
+    this.green = this.navParams.get("green");
+    this.params.gId = this.green.gId;
+    // this.getPlants();
+  }
+
+  ionViewDidLoad() {
     this.getPlants();
+    // console.log('ionViewDidLoad ProductListPage');
   }
 
   //获取植物生长记录信息
   getPlants() {
-    this.appService.getResources(AppGlobal.API.getPlants, rs => {
-      this.plants = rs;
+    // this.appService.getResources(AppGlobal.API.getPlants, rs => {
+    //   this.plants = rs;
+    // })
+    this.appService.httpGet(AppGlobal.API.getGreenhouseDetail, this.params, rs => {
+      console.log(rs);
+      this.plants = rs.data.greenhouseDetailDTOList;
+      console.log(this.plants)
     })
   }
 
@@ -67,8 +85,6 @@ export class ContactDetailsPage {
     prompt.present();
   }
 
-  ionViewDidLoad() {
-  }
 
   ionViewDidEnter() {
     let ctx = this.container.nativeElement;
@@ -76,7 +92,7 @@ export class ContactDetailsPage {
     this.chart.setOption({
       title: {
         text: '环境因子变化',
-        textStyle:{
+        textStyle: {
           fontSize: 14,
         }
       },
@@ -174,7 +190,7 @@ export class ContactDetailsPage {
         {
           name: 'CO2浓度',
           type: 'line',
-          data: [3, 6, 9, 12,3, 6,8],
+          data: [3, 6, 9, 12, 3, 6, 8],
           markPoint: {
             data: [
               {type: 'max', name: '最大值'},

@@ -14,23 +14,27 @@
   </a>
   <ion-list>
     <ion-item>
-      <a  nav-direction="forward" (click)="resetPassword()">
-        <ion-icon ios="ios-lock-outline" md="md-lock" (click)="resetPassword()"></ion-icon>修改密码
+      <a nav-direction="forward" (click)="resetPassword()">
+        <ion-icon ios="ios-lock-outline" md="md-lock" (click)="resetPassword()"></ion-icon>
+        修改密码
       </a>
     </ion-item>
     <ion-item>
       <a nav-direction="forward">
-        <ion-icon ios="ios-settings-outline" md="md-settings"></ion-icon>设置
+        <ion-icon ios="ios-settings-outline" md="md-settings" (click)="setUp()"></ion-icon>
+        设置
       </a>
     </ion-item>
     <ion-item>
-      <a  nav-direction="forward" (click)="clearCache()">
-        <ion-icon name="clearcache" (click)="clearCache()"></ion-icon>清除缓存
+      <a nav-direction="forward" (click)="clearCache()">
+        <ion-icon name="clearcache" (click)="clearCache()"></ion-icon>
+        清除缓存
       </a>
     </ion-item>
     <ion-item>
-      <a  nav-direction="forward">
-        <ion-icon name="app-about"></ion-icon>关于app
+      <a nav-direction="forward" (click)="appDesc()">
+        <ion-icon name="app-about"></ion-icon>
+        关于app
       </a>
     </ion-item>
   </ion-list>

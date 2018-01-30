@@ -12,7 +12,9 @@ export class AppGlobal {
     products: "_dress_products"
   }
 
-  static domain = "https://tlimama.tongedev.cn"
+  // static domain = "http://39.107.78.190:8080";
+  static domain = "http://211.83.242.90:8081";
+  // static domain = "http://fengmacro.hk1.tunnelfrp.cc";
 
   static API: any = {
     getCategories: '/api/ionic3/getCategories',
@@ -21,7 +23,14 @@ export class AppGlobal {
     // 本地json文件请求
     getSlides: '../assets/json/slides.json',
     getNews: '../assets/json/news.json',
-    getPlants: '../assets/json/plant.json'
+    getPlants: '../assets/json/plant.json',
+    //请求真实接口
+    getGreenhouse: '/greenhouse/getGreenhouses',
+    getGreenhouseDetail: '/greenhouse/getGreenhouseDetailes',
+    getNewsList: '/news/getAPPNewsList',
+    getNewsDetails:'/news/getNewsDetails',
+    getProductionList:'/production/getAPPProductionList',
+    toAddProduction:'/production/toAdd'
   };
 
 
@@ -49,6 +58,7 @@ export class AppService {
   }
 
   httpGet(url, params, callback, loader: boolean = false) {
+    console.log(url);
     let loading = this.loadingCtrl.create({});
     if (loader) {
       loading.present();

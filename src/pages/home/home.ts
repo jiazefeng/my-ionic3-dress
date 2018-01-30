@@ -11,74 +11,46 @@ import {NavController, IonicPage, ActionSheetController, LoadingController} from
 
 export class HomePage {
   slides: Array<any> = [];
-  categories: Array<any> = [];
-  products: Array<any> = [];
   news: Array<any> = [];
 
   spinner1: boolean = true;
 
   params = {
     favoritesId: 2054400,
-    pageNo: 1,
+    pageIndex: 1,
     pageSize: 20
   }
 
   constructor(public appShare: AppShare, public loadingCtrl: LoadingController, public actionSheetCtrl: ActionSheetController, public appService: AppService, public navCtrl: NavController) {
     this.getSlides();
-    // this.getCategories();
-    // this.getProducts();
-    this.getNews();
   }
 
-  //获取幻灯片
+  //获取新闻幻灯片
   getSlides() {
-    //   var params = {
-    //   favoritesId: 2056439,
-    //   pageNo: 1,
-    //   pageSize: 5
-    // }
-    // this.appService.httpGet(AppGlobal.API.getProducts, params, rs => {
+    var params = {
+      favoritesId: 2056439,
+      pageNo: 1,
+      pageSize: 5
+    }
+    this.appService.httpGet(AppGlobal.API.getNewsList, params, rs => {
+      console.log(rs);
+      this.slides = rs.data.carouselList;
+      this.news = rs.data.newsDTOList;
+      this.spinner1 = false;
+    })
+    // this.appService.getResources(AppGlobal.API.getSlides, rs => {
     //   console.debug(rs);
-    //   this.slides = rs.data;
-    //   this.spinner1 = false;
+    //   this.slides = rs;
     // })
-    this.appService.getResources(AppGlobal.API.getSlides, rs => {
-      console.debug(rs);
-      this.slides = rs;
-    })
-  }
-
-  //获取分类
-  getCategories() {
-    this.appService.httpGet(AppGlobal.API.getCategories, {appTag: 'dress'}, rs => {
-      console.debug(rs);
-      this.categories = rs.data;
-    })
-  }
-
-  //获取首页推荐列表
-  getProducts() {
-    this.appService.httpGet(AppGlobal.API.getProducts, this.params, rs => {
-      console.debug(rs);
-      this.products = rs.data;
-    })
   }
 
   //获取新闻列表
-  getNews() {
-    this.appService.getResources(AppGlobal.API.getNews, rs => {
-      this.news = rs;
-    })
-  }
+  // getNews() {
+  //   this.appService.getResources(AppGlobal.API.getNews, rs => {
+  //     this.news = rs;
+  //   })
+  // }
 
-  //商品详情
-  goDetails(item) {
-    console.debug('go details...')
-  }
-
-  goProductList(item) {
-    this.navCtrl.push('ProductListPage', {item: item});
-  }
 
   share(event) {
     let actionSheet = this.actionSheetCtrl.create({

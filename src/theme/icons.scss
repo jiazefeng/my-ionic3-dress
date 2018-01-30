@@ -69,10 +69,11 @@
 .icon-icon_CleartheCache:before {
   content: "\e633";
 }
-
-.ion-ios-clearcache:before {
-  content: "\e633";
-}
+.ion-md-clearcache:before,
+.ion-ios-clearcache:before,
+//.ion-ios-clearcache:before {
+//  content: "\e633";
+//}
 
 .ion-ios-clearcache-outline:before {
   content: "\e633";

@@ -26,7 +26,7 @@ export class ProductListPage {
 
   ionViewDidLoad() {
     this.getFavoritesItems();
-    console.log('ionViewDidLoad ProductListPage');
+    // console.log('ionViewDidLoad ProductListPage');
   }
   getFavoritesItems() {
     this.appService.httpGet(AppGlobal.API.getProducts, this.params, d => {

@@ -8,7 +8,7 @@ import { Component, Input } from '@angular/core';
 export class IonProductsComponent {
   @Input() news: Array<any> = [];
   constructor(public navCtrl: NavController) {
-    console.log('Hello IonProducts Component');
+    // console.log('Hello IonProducts Component');
   }
   goDetails(item) {
     this.navCtrl.push('ProductDetailsPage', { item: item });
