@@ -25,9 +25,7 @@ export class ProductDetailsPage {
   }
   getNewsDetails() {
     this.appService.httpGet(AppGlobal.API.getNewsDetails, this.params, rs => {
-      console.log(rs);
       this.newsDeatils = rs.data.newsDetails;
-      console.log(this.newsDeatils)
     })
   }
   assembleHTML(strHTML:any) {

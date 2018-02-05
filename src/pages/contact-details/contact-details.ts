@@ -1,6 +1,7 @@
 import {AppService, AppGlobal} from './../../app/app.service';
 import {Component, ViewChild, ElementRef} from '@angular/core';
 import {IonicPage, NavController, NavParams, AlertController} from 'ionic-angular';
+import {EnvironmentalFactorsPage} from "../environmental-factors/environmental-factors";
 
 declare var echarts;
 
@@ -87,123 +88,88 @@ export class ContactDetailsPage {
 
 
   ionViewDidEnter() {
+    this.yieldCharts();
+  }
+
+  yieldCharts() {
+    let date = ['周一', '周二', '周三', '周四', '周五', '周六', '周日'];
     let ctx = this.container.nativeElement;
+    // 基于准备好的dom，初始化echarts实例
     this.chart = echarts.init(ctx);
-    this.chart.setOption({
+
+    let option = {
       title: {
-        text: '环境因子变化',
+        text: '产量变化',
         textStyle: {
           fontSize: 14,
-        }
-      },
-      // color: ['#3398DB'],
-      tooltip: {
-        trigger: 'axis'
-      },
-      legend: {
-        x: 'right',
-        padding: [
-          25,  // 上
-          10, // 右
-          5,  // 下
-          0, // 左
-        ],
-        data: ['空气温度', '空气湿度', '土壤温度', 'CO2浓度']
+        },
+        x: 'center',
+        align: 'right'
       },
       grid: {
-        x: 40,
-        y: 80,
-        x2: 40,
+        x: 50,
+        // y: 40,
+        x2: 30,
         y2: 40,
-        borderWidth: 0
+        bottom: 80
       },
-      xAxis: [
-        {
-          type: 'category',
-          boundaryGap: false,
-          splitLine: {
-            show: false
+      toolbox: {
+        feature: {
+          dataZoom: {
+            yAxisIndex: 'none'
           },
-          data: ['周一', '周二', '周三', '周四', '周五', '周六', '周日']
+          restore: {},
+          saveAsImage: {}
         }
-      ],
-      yAxis: [
-        {
-          type: 'value',
-          splitLine: {
-            show: false
-          },
-          axisLabel: {
-            formatter: '{value} °C'
+      },
+      tooltip: {
+        trigger: 'axis',
+        axisPointer: {
+          type: 'cross',
+          animation: false,
+          label: {
+            backgroundColor: '#505765'
           }
         }
-      ],
-      series: [
-        {
-          name: '空气温度',
-          type: 'line',
-          data: [11, 11, 15, 13, 12, 13, 10],
-          markPoint: {
-            data: [
-              {type: 'max', name: '最大值'},
-              {type: 'min', name: '最小值'}
-            ]
-          },
-          markLine: {
-            data: [
-              {type: 'average', name: '平均值'}
-            ]
+      },
+      legend: {
+        data: ['产量'],
+        padding: [
+          5,  // 上
+          5, // 右
+          0,  // 下
+          0, // 左
+        ],
+        x: 'left'
+      },
+      xAxis: {
+        type: 'category',
+        boundaryGap: false,
+        data: date
+      },
+      yAxis: {
+        name: '产量(KG)',
+        type: 'value',
+        max: 10000
+      },
+      series: [{
+        name: '产量',
+        type: 'line',
+        stack: '总量',
+        itemStyle: {
+          normal: {
+            areaStyle: {
+              type: 'default'
+            }
           }
         },
-        {
-          name: '空气湿度',
-          type: 'line',
-          data: [4, 6, 1, 0, 3, 9, 12],
-          markPoint: {
-            data: [
-              {type: 'max', name: '最大值'},
-              {type: 'min', name: '最小值'}
-            ]
-          },
-          markLine: {
-            data: [
-              {type: 'average', name: '平均值'}
-            ]
-          }
-        },
-        {
-          name: '土壤温度',
-          type: 'line',
-          data: [1, 5, 8, 15, 3, 9, 6],
-          markPoint: {
-            data: [
-              {type: 'max', name: '最大值'},
-              {type: 'min', name: '最小值'}
-            ]
-          },
-          markLine: {
-            data: [
-              {type: 'average', name: '平均值'}
-            ]
-          }
-        },
-        {
-          name: 'CO2浓度',
-          type: 'line',
-          data: [3, 6, 9, 12, 3, 6, 8],
-          markPoint: {
-            data: [
-              {type: 'max', name: '最大值'},
-              {type: 'min', name: '最小值'}
-            ]
-          },
-          markLine: {
-            data: [
-              {type: 'average', name: '平均值'}
-            ]
-          }
-        }
-      ]
-    });
+        data: [2800, 4800, 4000, 1900, 9600, 2700, 1000]
+      }]
+    }
+    this.chart.setOption(option);
+  }
+
+  toEnvironmentalFactorsPage(id) {
+    this.navCtrl.push('EnvironmentalFactorsPage', {'id': id});
   }
 }

@@ -13,7 +13,8 @@ export class AppGlobal {
   }
 
   // static domain = "http://39.107.78.190:8080";
-  static domain = "http://211.83.242.90:8081";
+  static domain = "http://47.95.181.21";
+  // static domain = "http://211.83.242.90:8081";
   // static domain = "http://fengmacro.hk1.tunnelfrp.cc";
 
   static API: any = {

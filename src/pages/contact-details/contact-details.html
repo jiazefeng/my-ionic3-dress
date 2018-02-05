@@ -1,13 +1,13 @@
 <ion-header>
 
-  <ion-navbar style="opacity: 0.8"  color="primary">
+  <ion-navbar style="opacity: 0.8" color="primary">
     <ion-title>{{green.gName}}详情</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
-<ion-content padding>
+<ion-content>
   <ion-col>
     <ion-item>
       <!--<ion-icon name='power' item-start></ion-icon>-->
@@ -22,41 +22,41 @@
       </ion-label>
     </ion-item>
   </ion-col>
-<div class="card-background-page">
-  <ion-row>
-    <ion-col col-6>
-      <ion-card>
-        <img src="../../assets/imgs/card-saopaolo.png"/>
-        <div class="card-title">空气温度</div>
-        <div class="card-subtitle">20℃</div>
-      </ion-card>
-    </ion-col>
-    <ion-col col-6>
-      <ion-card>
-        <img src="../../assets/imgs/card-saopaolo.png"/>
-        <div class="card-title">空气湿度</div>
-        <div class="card-subtitle">10℃</div>
-      </ion-card>
-    </ion-col>
-  </ion-row>
-  <ion-row>
-    <ion-col col-6>
-      <ion-card>
-        <img src="../../assets/imgs/card-saopaolo.png"/>
-        <div class="card-title">土壤温度</div>
-        <div class="card-subtitle">10℃</div>
-      </ion-card>
-    </ion-col>
-    <ion-col col-6>
-      <ion-card>
-        <img src="../../assets/imgs/card-saopaolo.png"/>
-        <div class="card-title">CO2浓度</div>
-        <div class="card-subtitle">10℃</div>
-      </ion-card>
-    </ion-col>
-  </ion-row>
+  <div class="card-background-page">
+    <ion-row>
+      <ion-col col-6>
+        <ion-card>
+          <img (click)="toEnvironmentalFactorsPage(1)" src="../../assets/imgs/timg11.jpg"/>
+          <div class="card-title">空气温度</div>
+          <div class="card-subtitle">24℃</div>
+        </ion-card>
+      </ion-col>
+      <ion-col col-6>
+        <ion-card>
+          <img (click)="toEnvironmentalFactorsPage(2)" src="../../assets/imgs/timg11.jpg"/>
+          <div class="card-title">空气湿度</div>
+          <div class="card-subtitle">57%RH</div>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col col-6>
+        <ion-card>
+          <img (click)="toEnvironmentalFactorsPage(3)" src="../../assets/imgs/timg11.jpg"/>
+          <div class="card-title">土壤水分</div>
+          <div class="card-subtitle">82%</div>
+        </ion-card>
+      </ion-col>
+      <ion-col col-6>
+        <ion-card>
+          <img (click)="toEnvironmentalFactorsPage(4)" src="../../assets/imgs/timg11.jpg"/>
+          <div class="card-title">CO2浓度</div>
+          <div class="card-subtitle">2439ppm</div>
+        </ion-card>
+      </ion-col>
+    </ion-row>
 
-</div>
+  </div>
 
 
   <div #container class="myechart"></div>

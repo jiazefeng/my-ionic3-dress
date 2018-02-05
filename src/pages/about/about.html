@@ -20,7 +20,7 @@
       </a>
     </ion-item>
     <ion-item>
-      <a nav-direction="forward">
+      <a nav-direction="forward" (click)="setUp()">
         <ion-icon ios="ios-settings-outline" md="md-settings" (click)="setUp()"></ion-icon>
         设置
       </a>
@@ -33,7 +33,7 @@
     </ion-item>
     <ion-item>
       <a nav-direction="forward" (click)="appDesc()">
-        <ion-icon name="app-about"></ion-icon>
+        <ion-icon name="app-about" (click)="appDesc()"></ion-icon>
         关于app
       </a>
     </ion-item>

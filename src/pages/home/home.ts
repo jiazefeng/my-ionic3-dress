@@ -24,7 +24,9 @@ export class HomePage {
   constructor(public appShare: AppShare, public loadingCtrl: LoadingController, public actionSheetCtrl: ActionSheetController, public appService: AppService, public navCtrl: NavController) {
     this.getSlides();
   }
-
+  goDetails(item) {
+    this.navCtrl.push('ProductDetailsPage', { item: item });
+  }
   //获取新闻幻灯片
   getSlides() {
     var params = {

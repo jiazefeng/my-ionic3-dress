@@ -12,8 +12,8 @@
   pager:分页器（小圆点） pager=true
 -->
   <ion-slides [pager]="true" [loop]="true" autoplay="3000" [initialSlide]=0 *ngIf="slides.length > 1">
-    <ion-slide *ngFor="let item of slides" (click)="goDetails(item)">
-      <img src="{{item.newsImgUrl}}" alt="">
+    <ion-slide *ngFor="let item of slides" >
+      <img src="{{item.newsImgUrl}}" alt="" (click)="goDetails(item)">
       <div class="cover"></div>
       <span class="title">{{item.newsTitle}}</span>
     </ion-slide>
